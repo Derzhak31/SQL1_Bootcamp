@@ -1,0 +1,24 @@
+--Session 1
+BEGIN;
+--Session 2
+BEGIN;
+--Session 1
+UPDATE PIZZERIA
+SET RATING = 2
+WHERE ID = 1;
+--Session 2
+UPDATE PIZZERIA
+SET RATING = 2
+WHERE ID = 2;
+--Session 1
+UPDATE PIZZERIA
+SET RATING = 1
+WHERE ID = 2;
+--Session 2
+UPDATE PIZZERIA
+SET RATING = 1
+WHERE ID = 1;
+--Session 1
+COMMIT;
+--Session 2
+COMMIT;
